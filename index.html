@@ -24,19 +24,19 @@
             color: #fff;
         }
         .musica {
-            background: rgba(0, 0, 0, 0.8); /* Fundo preto com opacidade */
+            background: rgba(0, 0, 0, 0.8);
             padding: 15px;
             margin: 10px 0;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             width: 90%;
             max-width: 600px;
-            border: 10px solid #ff5500; /* Borda laranja de 10px */
+            border: 10px solid #ff5500;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
         .musica:hover {
-            border-color: #cc4400; /* Cor mais escura ao passar o mouse */
-            box-shadow: 0 0 10px rgba(255, 85, 0, 0.5); /* Efeito de brilho ao hover */
+            border-color: #cc4400;
+            box-shadow: 0 0 10px rgba(255, 85, 0, 0.5);
         }
         a {
             text-decoration: none;
@@ -50,49 +50,119 @@
             text-align: center;
             color: #fff;
         }
+        .search-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ff5500;
+            border-radius: 20px 0 0 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            width: 300px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #cc4400;
+            box-shadow: 0 0 5px rgba(255, 85, 0, 0.5);
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #ff5500;
+            color: white;
+            border: none;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #cc4400;
+            transform: scale(1.05);
+        }
+        .musica-lista {
+            width: 100%;
+            max-width: 600px;
+        }
     </style>
 </head>
 <body>
     <h1>Baixe Suas Músicas Favoritas</h1>
-    
-    <div class="musica">
-        <h2>Glass Animals - Take A Slice</h2>
-        <p>Artista: Glass Animals</p>
-        <a href="musicas/musica1.mp3" download>Glass Animals - Take A Slice - Baixar</a>
+
+    <!-- Adicionando o pesquisador -->
+    <div class="search-container">
+        <input type="text" id="music-search" placeholder="Pesquise uma música..." oninput="searchMusic()">
+        <button onclick="searchMusic()">Pesquisar</button>
     </div>
 
-    <div class="musica">
-        <h2>af1</h2>
-        <p>Artista: Lilbubblegum</p>
-        <a href="musicas/musica2.mp3" download>af1 - Baixar</a>
-    </div>
+    <div class="musica-lista" id="musica-lista">
+        <div class="musica" data-title="Glass Animals - Take A Slice">
+            <h2>Glass Animals - Take A Slice</h2>
+            <p>Artista: Glass Animals</p>
+            <a href="musicas/musica1.mp3" download>Glass Animals - Take A Slice - Baixar</a>
+        </div>
 
-    <div class="musica">
-        <h2>Pure Negga CNV Vol 14</h2>
-        <p>Artista: Pure Negga</p>
-        <a href="musicas/musica3.mp3" download>Pure Negga CNV Vol 14 - Baixar</a>
-    </div>
+        <div class="musica" data-title="af1 - Lilbubblegum">
+            <h2>af1</h2>
+            <p>Artista: Lilbubblegum</p>
+            <a href="musicas/musica2.mp3" download>af1 - Baixar</a>
+        </div>
 
-    <div class="musica">
-        <h2>WTF 2</h2>
-        <p>Artista: UGOVHB</p>
-        <a href="musicas/musica4.mp3" download>WTF 2 - Baixar</a>
-    </div>
+        <div class="musica" data-title="Pure Negga CNV Vol 14">
+            <h2>Pure Negga CNV Vol 14</h2>
+            <p>Artista: Pure Negga</p>
+            <a href="musicas/musica3.mp3" download>Pure Negga CNV Vol 14 - Baixar</a>
+        </div>
 
-    <div class="musica">
-        <h2>AVIVA - GRRRLS</h2>
-        <p>Artista: Lity</p>
-        <a href="musicas/musica5.mp3" download>AVIVA - GRRRLS - Baixar</a>
-    </div>
+        <div class="musica" data-title="WTF 2 - UGOVHB">
+            <h2>WTF 2</h2>
+            <p>Artista: UGOVHB</p>
+            <a href="musicas/musica4.mp3" download>WTF 2 - Baixar</a>
+        </div>
 
-    <div class="musica">
-        <h2>Pay Phone</h2>
-        <p>Artista: Maroon 5</p>
-        <a href="musicas/musica6.mp3" download>Pay Phone - Baixar</a>
+        <div class="musica" data-title="AVIVA - GRRRLS">
+            <h2>AVIVA - GRRRLS</h2>
+            <p>Artista: Lity</p>
+            <a href="musicas/musica5.mp3" download>AVIVA - GRRRLS - Baixar</a>
+        </div>
+
+        <div class="musica" data-title="Pay Phone - Maroon 5">
+            <h2>Pay Phone</h2>
+            <p>Artista: Maroon 5</p>
+            <a href="musicas/musica6.mp3" download>Pay Phone - Baixar</a>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Meu Site de Música. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        function searchMusic() {
+            const input = document.getElementById('music-search').value.toLowerCase().trim();
+            const musicas = document.querySelectorAll('.musica');
+
+            let hasResults = false;
+
+            musicas.forEach(musica => {
+                const title = musica.getAttribute('data-title').toLowerCase();
+                if (title.includes(input)) {
+                    musica.style.display = '';
+                    hasResults = true;
+                } else {
+                    musica.style.display = 'none';
+                }
+            });
+
+            if (!hasResults && input !== '') {
+                alert('Nenhuma música encontrada para a pesquisa: ' + input);
+            }
+        }
+    </script>
 </body>
 </html>
