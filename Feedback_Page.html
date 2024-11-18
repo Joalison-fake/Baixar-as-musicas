@@ -1,1 +1,76 @@
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            background: url('https://as2.ftcdn.net/v2/jpg/05/84/18/89/1000_F_584188957_9b667BerWvrCbBxWRl206LyIzshTkc8W.jpg') no-repeat center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 50px;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #fff;
+        }
+        .feedback-form {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 600px;
+            border: 5px solid #ff5500;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ff5500;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #ff5500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #cc4400;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Deixe seu Feedback</h1>
+    <div class="feedback-form">
+        <form action="feedbacks/feedback.txt" method="POST">
+            <input type="text" name="nome" placeholder="Seu Nome" required>
+            <textarea name="mensagem" rows="5" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit">Enviar Feedback</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Meu Site de Música. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
