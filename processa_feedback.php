@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensagem = htmlspecialchars(trim($_POST['mensagem']));
 
     // Define o caminho do arquivo
-    $caminho_arquivo = 'feedbacks/feedbacks/feedback.txt';
+    $caminho_arquivo = 'feedbacks/feedback.txt';
 
     // Cria a string a ser escrita no arquivo
     $feedback = "Nome: $nome\nMensagem: $mensagem\n\n";
